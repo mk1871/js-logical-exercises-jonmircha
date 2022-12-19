@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video 34 exercise 2</title>
+  </head>
+  <body>
+    <h1>Video 34 exercise 2</h1>
+    <script>
+      /* 2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, 
+            pe. miFunción("Hola Mundo", 4) devolverá "Hola" */
+
+      const recortarCadena = (cadena = "", longitud = undefined) =>
+        !cadena
+          ? console.warn("No ingresaste una cadena")
+          : longitud === undefined
+          ? console.warn("No ingresaste la longitud")
+          : console.info(cadena.slice(0, longitud));
+
+      recortarCadena("Hola Mundo", 4);
+      recortarCadena();
+      recortarCadena("Hola Amigo");
+      recortarCadena("", 7);
+    </script>
+  </body>
+</html>

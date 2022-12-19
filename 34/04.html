@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video 34 exercise 4</title>
+  </head>
+  <body>
+    <h1>Video 34 exercise 4</h1>
+    <script>
+      /* 4) Programa una función que repita un texto X veces,
+              pe. miFuncion('Hola Mundo', 3) devolverá Hola Mundo Hola Mundo Hola Mundo */
+
+      const repetirTexto = (texto = "", x = undefined) => {
+        if (!texto) return console.warn("No ingresaste una texto");
+        if (x === undefined)
+          return console.warn("No ingresaste las repeticiones");
+        if (x === 0) return console.error("El número de veces no puede ser 0");
+        if (Math.sign(x) === -1)
+          return console.error("El número de veces no puede ser negativo");
+
+        let nuevoTexto = "";
+        for (let i = 0; i < x; i++) {
+          nuevoTexto += texto + " ";
+        }
+        return console.info(nuevoTexto);
+      };
+
+      repetirTexto("Hola amiguitos, ¿cómo están?", 4);
+      repetirTexto("Hola mundo", 0);
+      repetirTexto("Hola mundo", -5);
+      repetirTexto("Este es otra texto");
+      repetirTexto("Hola", 3);
+    </script>
+  </body>
+</html>

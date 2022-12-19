@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video 34 exercise 3</title>
+  </head>
+  <body>
+    <h1>Video 34 exercise 3</h1>
+    <script>
+      /* 3) Programa una función que dada una String te devuelva un Array de textos separados 
+            por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'] */
+
+      const textoAArray = (cadena = "", separador = undefined) =>
+        !cadena
+          ? console.warn("No ingresaste una cadena")
+          : separador === undefined
+          ? console.warn("No ingresaste el separador")
+          : console.info(cadena.split(separador));
+
+      textoAArray("Hola amiguitos, ¿cómo están?", " ");
+      textoAArray("", " ");
+      textoAArray("Esta es otra cadena");
+      textoAArray(
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus quaerat ad totam consequuntur praesentium labore velit, perferendis fugit. Et dolorum, quos eius exercitationem ipsam perspiciatis autem atque vero! Enim, blanditiis.", " "
+      );
+    </script>
+  </body>
+</html>

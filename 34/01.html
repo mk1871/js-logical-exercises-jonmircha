@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video 34 exercise 1</title>
+  </head>
+  <body>
+    <h1>Video 34 exercise 1</h1>
+    <script>
+      /* 1) Programa una función que cuente el número de caracteres de una cadena de texto,
+                    pe. miFunción("Hola Mundo") devolverá 10 */
+
+      const cuentaCaracteres = (cadena = "") =>
+        typeof cadena === "string"
+          ? cadena.length
+          : console.error("El dato ingresado no es una cadena");
+
+     console.log(cuentaCaracteres("Hola Mundo"));
+     console.log(cuentaCaracteres());
+     console.log(cuentaCaracteres(123));
+    </script>
+  </body>
+</html>
