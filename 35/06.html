@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Video 35 exercise 6</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Video 35 exercise 6</h1>
-    
-</body>
+    <script>
+      /* 6) Programa una función para contar el número de veces que se repite una word en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2 */
+
+      const contarPalabras = (s = "", word = "") => {
+        if (!s) return console.warn("No ingresaste ningún texto.");
+
+        if (!word) return console.error("No ingresaste la palabra a contar.");
+
+        s = s.split(/[,.\s]/g); //usa expresión regular para partir la cadena con los caracteres , . y espacio.
+        let contador = 0;
+
+        s.forEach((element) => {
+          if (element === word) {
+            contador++;
+          }
+        });
+
+        contador === 0
+          ? console.info(`"${word}" no está en el texto dado.`)
+          : console.info(`"${word}" está ${contador} veces en el texto dado.`);
+      };
+
+      contarPalabras(
+        "bonito, todo me parece bonito. Bonita mañana, bonito lugar, bonita la cama, que bien se ve el mar. bonito es el día que acaba de empezar. Bonita la vida, respira, respira, respira",
+        "bonito"
+      );
+
+      contarPalabras("Hola, mundo. Hola, mundo.", "");
+      contarPalabras("Hola, mundo. Hola, mundo.", "mundo");
+    </script>
+  </body>
 </html>

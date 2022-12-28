@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video 37 exercise 14</title>
+  </head>
+  <body>
+    <h1>Video 37 exercise 14</h1>
+    <script>
+      /* 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F */
+
+      const convertirTemperatura = (n = undefined, unidad = "") =>
+        n === undefined
+          ? console.warn("No ingresaste temperatura")
+          : unidad === ""
+          ? console.warn("No ingresaste la escala ")
+          : typeof n !== "number"
+          ? console.error("Dame solamente un dato numérico")
+          : unidad === "C" || unidad === "c"
+          ? console.info(`${n}°C = ${n * 1.8 + 32}°F`)
+          : unidad === "F" || unidad === "f"
+          ? console.info(`${n}°F = ${(n - 32) / 1.8}°C`)
+          : console.warn(`${unidad} no es una unidad válida.`);
+
+      convertirTemperatura();
+      convertirTemperatura(15, "C");
+      convertirTemperatura(28);
+      convertirTemperatura(0, "c");
+      convertirTemperatura(79.5, "f");
+      convertirTemperatura("3", "C");
+      convertirTemperatura(40, "A");
+      convertirTemperatura(92, "B");
+      convertirTemperatura(-20, "F");
+    </script>
+  </body>
+</html>

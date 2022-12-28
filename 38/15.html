@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video 38 exercise 15</title>
+  </head>
+  <body>
+    <h1>Video 38 exercise 15</h1>
+    <script>
+      /* 15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10 */
+
+      const cambiarBase = (n = undefined, base = undefined) => {
+        if (n === undefined) return console.warn("No ingresaste un número");
+        if (typeof n !== "number")
+          return console.error("Dame solamente números");
+        if (base === undefined) return console.warn("No ingresaste una base");
+        if (base === 2) {
+          // regExp para identificar si una cadena es binaria o no
+          const regExp = /\b[01]+\b/;
+          regExp.test(n)
+            ? console.info(`${n} base ${base} = ${parseInt(n, base)} base 10`)
+            : console.warn(`${n} no es binario.`);
+        }
+        if (base === 10) {
+          n >= 0
+            ? console.info(`${n} base ${base} = ${n.toString(2)} base 2`)
+            : console.info(
+                `${n} base ${base} = ${(n >>> 0).toString(2)} base 2`
+              );
+        } else return console.info(`${base} no es una base válida.`);
+      };
+
+      cambiarBase(10023, 2);
+      cambiarBase(63, 10);
+      cambiarBase("b", 10);
+      cambiarBase(101010, 3);
+      cambiarBase(42, "w");
+      cambiarBase(90);
+    </script>
+  </body>
+</html>

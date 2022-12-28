@@ -1,13 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Video 35 exercise 7</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Video 35 exercise 7</h1>
-    
-</body>
+    <script>
+      //   const esPalindromo = (cadena = "") => {
+      //     if (!cadena) return console.warn("No ingresaste ningún texto.");
+
+      //     let longitud = cadena.length;
+      //     let n = longitud / 2;
+      //     let es = true;
+      //     console.log("n =", n);
+
+      //     for (let i = 0; i < n; i++) {
+      //       if (cadena.charAt(i) !== cadena.charAt(--longitud)) {
+      //         console.log("i = ", i, "l = ", longitud);
+      //         return console.info("No es palíndromo.");
+      //       }
+
+      //       console.log("i = ", i, "l = ", longitud);
+      //       if (i === n - 1) console.log("Es palíndromo");
+      //     }
+      //   };
+
+      const esPalindromo = (cadena = "") => {
+        if (!cadena) return console.warn("No ingresaste una cadena");
+
+        cadena = cadena.toLowerCase().trim();
+        let invertida = cadena.split("").reverse().join("");
+
+        cadena === invertida
+          ? console.info("Es Palíndromo.")
+          : console.info("No es Palíndromo.");
+
+        console.info(`Original: ${cadena}\nInvertida: ${invertida}`);
+      };
+
+      esPalindromo("loco OcOL");
+      esPalindromo("");
+      esPalindromo("Hola mundo");
+      esPalindromo("SaLAS");
+    </script>
+  </body>
 </html>

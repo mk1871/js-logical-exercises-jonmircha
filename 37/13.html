@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video 37 exercise 13</title>
+  </head>
+  <body>
+    <h1>Video 37 exercise 13</h1>
+    <script>
+      /* 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar */
+
+      const parOImpar = (numero = undefined) =>
+        numero === undefined
+          ? console.warn("No ingresaste un número")
+          : typeof numero !== "number"
+          ? console.error("Dame solamente un dato numérico")
+          : numero % 2 === 0
+          ? console.info(`${numero} es par.`)
+          : console.info(`${numero} es impar.`);
+
+      parOImpar();
+      parOImpar("a");
+      parOImpar("5");
+      parOImpar(3);
+      parOImpar(20);
+      parOImpar(-23);
+    </script>
+  </body>
+</html>

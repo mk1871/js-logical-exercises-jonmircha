@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video 36 exercise 10</title>
+  </head>
+  <body>
+    <h1>Video 36 exercise 10</h1>
+    <script>
+      /* 10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true  */
+
+      const esCapicua = (n = 0) =>
+        !n
+          ? console.warn("No ingresaste un número")
+          : typeof n !== "number"
+          ? console.warn("Dame solamente un dato numérico")
+          : n.toString().split("").reverse().join("") == n
+          ? console.log(`${n} es capicúa.`)
+          : console.log(`${n} no es capicúa.`);
+
+      esCapicua(3030550303);
+      esCapicua();
+      esCapicua("52");
+      esCapicua("abc");
+      esCapicua(2356);
+      esCapicua(5678765);
+      esCapicua(452.254);
+    </script>
+  </body>
+</html>

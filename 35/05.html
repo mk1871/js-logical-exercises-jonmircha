@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Video 35 exercise 5</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Video 35 exercise 5</h1>
-    
-</body>
+    <script>
+      /* 5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH" */
+
+      const invertirTexto = (texto = "") =>
+        !texto
+          ? console.warn("No ingresaste ningún texto")
+          : console.info(texto.split("").reverse().join(""));
+
+      invertirTexto("Hola, mundo");
+      invertirTexto("abcdefghi");
+      invertirTexto("");
+    </script>
+  </body>
 </html>

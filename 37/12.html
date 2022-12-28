@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video 37 exercise 12</title>
+  </head>
+  <body>
+    <h1>Video 37 exercise 12</h1>
+    <script>
+      /* 12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true */
+
+      const esPrimo = (numero = undefined) => {
+        if (numero === undefined) return "No ingresaste un número";
+        if (typeof numero !== "number")
+          return "Dame solamente un dato numérico";
+        // si el número es menor o igual a 1, retorna false
+        if (numero <= 1) return false;
+        // si el número es divisible por 2, retornará true si es 2, si no, false
+        if (numero % 2 === 0) return numero === 2;
+        // ya hemos descartado todos los números pares
+        // el máximo divisor es la raíz cuadrada del número dado
+        let maxDivisor = Math.floor(Math.sqrt(numero));
+
+        // se empieza desde el tres y saltando de a 2, descarta pares
+        for (let i = 3; i < maxDivisor + 1; i += 2) {
+          if (numero % i === 0) return false;
+        }
+
+        return true;
+      };
+
+      console.log(esPrimo(1));
+      console.log(esPrimo(2));
+      console.log(esPrimo(3));
+      console.log(esPrimo());
+      console.log(esPrimo("3"));
+      console.log(esPrimo("a"));
+      console.log(esPrimo(-29));
+      console.log(esPrimo(29));
+    </script>
+  </body>
+</html>
