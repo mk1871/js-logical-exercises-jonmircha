@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video 39 exercise 19</title>
+  </head>
+  <body>
+    <h1>Video 39 exercise 19</h1>
+    <script>
+      /* 19) Programa una función que valide que un texto sea un nombre válido, pe. miFuncion("Jonathan MirCha") devolverá verdadero */
+      const validarNombre = (nombre = "") => {
+        if (!nombre) return console.warn("No ingresaste un nombre");
+        if (typeof nombre !== "string")
+          return console.error("Ingresa sólo texto");
+
+        //const nombreRegEx = /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/gm;
+        //const nombreRegEx2 =
+        /^[a-z\u00C0-\u02AB'´`-]+\.?\s([a-z\u00C0-\u02AB'´`-]+\.?\s?)+$/i;
+        const nombreRegex =
+          /^[ a-zA-ZàèìòùÀÈÌÒÙáéíóúýÁÉÍÓÚÝâêîôûÂÊÎÔÛãñõÃÑÕäëïöüÿÄËÏÖÜŸçÇßØøÅåÆæœ'`'\s\-]+$/g;
+
+        nombreRegex.test(nombre)
+          ? console.info("Verdadero")
+          : console.warn("El nombre ingresado no es válido");
+      };
+
+      validarNombre();
+      validarNombre(123);
+      validarNombre("Jon Doe");
+      validarNombre("899");
+      validarNombre("Angel Castañeda");
+      validarNombre("0231");
+      validarNombre("Juan David ");
+      validarNombre("Juan's David ");
+      validarNombre("Juan-Da III ");
+    </script>
+  </body>
+</html>

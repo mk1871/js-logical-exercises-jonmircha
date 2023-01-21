@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video 39 exercise 18</title>
+  </head>
+  <body>
+    <h1>Video 39 exercise 18</h1>
+    <script>
+      /* 18) Programa una función que dada una cadena de texto cuente el número de vocales y consonantes, pe. miFuncion("Hola Mundo") devuelva Vocales: 4, Consonantes: 5 */
+
+      const contarVocalesYConsonantes = (texto = "") => {
+        let vocales = 0;
+        let consonantes = 0;
+
+        if (!texto) return console.warn("No ingresaste ningún texto");
+        if (typeof texto !== "string")
+          return console.error("No se ingresó texto");
+        let vocalesRegEx = /[aeiouáéíóúü]/; // List of vowels
+        let consonantesRegEx = /[bcdfghjklmnñpqrstvwxyz]/; // List of consonants
+
+        texto = texto.toLocaleLowerCase();
+        for (let c of texto) {
+          if (vocalesRegEx.test(c)) vocales++;
+          if (consonantesRegEx.test(c)) consonantes++;
+        }
+
+        return console.info(
+          `Hay ${vocales} vocales y ${consonantes} consonantes en el texto.`
+        );
+      };
+
+      contarVocalesYConsonantes();
+      contarVocalesYConsonantes("Hola");
+      contarVocalesYConsonantes("ÁÁÁñññÑ");
+      contarVocalesYConsonantes(123);
+      contarVocalesYConsonantes("Hola MUNDIrijillo");
+      contarVocalesYConsonantes("Ñoño");
+    </script>
+  </body>
+</html>

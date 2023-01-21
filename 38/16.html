@@ -11,13 +11,11 @@
     <script>
       /* 16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800. */
 
-      const aplicarDescuento = (cantidad = undefined, descuento = undefined) =>
+      const aplicarDescuento = (cantidad = undefined, descuento = 0) =>
         cantidad === undefined
           ? console.warn("No ingresaste una cantidad")
           : typeof cantidad !== "number"
           ? console.error("Dame solamente números")
-          : descuento === undefined
-          ? console.warn("No ingresaste el descuento")
           : typeof descuento !== "number"
           ? console.error("Dame solamente números")
           : console.info(

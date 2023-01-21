@@ -11,11 +11,22 @@
     <script>
       /*  17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,4,23)) devolverá 35 años (en 2020). */
 
-      const contarAgnos = (fecha = undefined) => {
+      const contarAgnos = (fecha = undefined) =>
         fecha === undefined
-          ? console.warn("No ingresaste una fecha)
-          : typeof cantidad !== typeof
-          ? console.error("Dame solamente números")};
+          ? console.warn("No ingresaste una fecha")
+          : fecha instanceof Date && !isNaN(fecha) // valida que fecha sea una fecha válida
+          ? console.info(
+              `Han pasado ${
+                new Date().getFullYear() - fecha.getFullYear()
+              } años desde ${fecha.getFullYear()}.`
+            )
+          : console.warn("Dame una fecha válida en el formato aaaa-mm-dd");
+
+      contarAgnos(new Date(1984, 4, 23));
+      contarAgnos("dia");
+      contarAgnos(1985);
+      contarAgnos();
+      contarAgnos(new Date(1988, 2, 22));
     </script>
   </body>
 </html>
