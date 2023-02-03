@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video 41 exercise 24</title>
+  </head>
+  <body>
+    <h1>Video 41 exercise 24</h1>
+    <script>
+      /* 24) Programa una función que dado un arreglo de números devuelva un objeto con dos arreglos, el primero tendrá los numeros ordenados en forma ascendente y el segundo de forma descendiente, pe. miFuncion([7, 5,7,8,6]) devolverá { asc: [5,6,7,7,8], desc: [8,7,7,6,5] }*/
+      const ordenarArreglo = (array = undefined) => {
+        if (array === undefined)
+          return console.warn("No ingresaste ningún dato");
+        if (!(array instanceof Array))
+          return console.warn("No se ingresó un array");
+        if (array.length === 0) return console.warn("El array está vacío");
+
+        for (let n of array) {
+          if (typeof n !== "number")
+            return console.warn(`${n} NO es un número.`);
+        }
+
+        return console.info({
+          // el método spread clona un arreglo, ya que si copia el arreglo
+          // se copia también la referencia
+          ascendente: [...array].sort(function (a, b) {
+            return a - b;
+          }),
+
+          descendente: [...array].sort(function (b, a) {
+            return a - b;
+          }),
+        });
+      };
+
+      ordenarArreglo([74, -10, 25, 30, 10, 8, 94, 111, 2]);
+      ordenarArreglo(123);
+      ordenarArreglo();
+      ordenarArreglo("abs");
+      ordenarArreglo([2, 1, 4, 56, "casa"]);
+      ordenarArreglo([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+      ordenarArreglo(1, 2, 3, 6, 5);
+      ordenarArreglo([3, 5, -1, 6, -5, 8, -20, -30, 45, 21, -7, 22]);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video 40 exercise 21</title>
+  </head>
+  <body>
+    <h1>Video 40 exercise 21</h1>
+    <script>
+      /* 21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25] */
+
+      const elevarArray = (array = undefined) => {
+        if (array === undefined)
+          return console.warn("No ingresaste ningún dato");
+        if (!(array instanceof Array))
+          return console.warn("No se ingresó un array");
+        if (array.length === 0) return console.warn("El array está vacío");
+
+        for (let n of array) {
+          if (typeof n !== "number")
+            return console.warn(`${n} no es un número.`);
+        }
+        const nuevoArray = array.map((el) => el * el);
+        return console.info(
+          `Arreglo original: ${array}\n     Al cuadrado: ${nuevoArray}`
+        );
+      };
+
+      elevarArray([1, 2, 3]);
+      elevarArray();
+      elevarArray("");
+      elevarArray(12541);
+      elevarArray("a", 0, 23);
+      elevarArray([30, 22, 15]);
+      elevarArray("ejemplo");
+      elevarArray([]);
+      elevarArray([-5, 9, -10]);
+    </script>
+  </body>
+</html>

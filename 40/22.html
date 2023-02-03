@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video 40 exercise 22</title>
+  </head>
+  <body>
+    <h1>Video 40 exercise 22</h1>
+    <script>
+      /* 22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60] */
+      const calcularMinMaxArray = (array = undefined) => {
+        if (array === undefined)
+          return console.warn("No ingresaste ningún dato");
+        if (!(array instanceof Array))
+          return console.warn("No se ingresó un array");
+        if (array.length === 0) return console.warn("El array está vacío");
+
+        for (let n of array) {
+          if (typeof n !== "number")
+            return console.warn(`${n} NO es un número.`);
+
+          let res = [Math.max(...array), Math.min(...array)];
+
+          return console.info(
+            `          Array: ${array}\nMáximo y mínimo: ${res}`
+          );
+        }
+      };
+
+      calcularMinMaxArray([10, 2, -6, 89, 13, -2, 121, 48]);
+      calcularMinMaxArray();
+      calcularMinMaxArray([]);
+      calcularMinMaxArray(123);
+      calcularMinMaxArray("abc");
+    </script>
+  </body>
+</html>
