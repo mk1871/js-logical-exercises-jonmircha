@@ -10,6 +10,42 @@
     <h1>Video 41 exercise 26</h1>
     <script>
       /* 26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5 */
+
+      const obtenerPromedio = (array = undefined) => {
+        if (array === undefined)
+          return console.warn("No ingresaste ningún dato");
+        if (!(array instanceof Array))
+          return console.warn("No se ingresó un array");
+        if (array.length === 0) return console.warn("El array está vacío");
+        if (array.length === 1)
+          return console.warn("El array debe tener al menos dos elementos");
+
+        for (let n of array) {
+          if (typeof n !== "number")
+            return console.warn(`${n} NO es un número.`);
+        }
+
+        // calcula el promedio usando el método reduce para la sumatoria
+        let sumatoria = array.reduce(
+          (acumulador, sgteValor) => acumulador + sgteValor,
+          0
+        );
+
+        let promedio = sumatoria / array.length;
+
+        return console.info(`El promedio de ${array} es ${promedio}`);
+      };
+
+      obtenerPromedio([8, -10, 111, 25, 30, 2, 10, 8, 94, 111, 2]);
+      obtenerPromedio(123);
+      obtenerPromedio([123]);
+      obtenerPromedio();
+      obtenerPromedio("abs");
+      obtenerPromedio([2, 1, 4, 56, "casa"]);
+      obtenerPromedio([1, 2, 3, 6, 10, -2, 20, 4, 5, 6, 7, 20, 8, 9, 10]);
+      obtenerPromedio(1, 2, 3, 6, 5);
+      obtenerPromedio([9, 8, 7, 6, 5, 4, 3, 2, 1, 0]);
+      obtenerPromedio([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
     </script>
   </body>
 </html>

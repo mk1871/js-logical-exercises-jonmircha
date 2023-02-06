@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video 42 exercise 27</title>
+  </head>
+  <body>
+    <h1>Video 42 exercise 27</h1>
+    <script>
+      /* 27) Programa una clase llamada Pelicula.
+                    La clase recibirá un objeto al momento de instanciarse con los siguentes datos: id de la película en IMDB, titulo, director, año de estreno, país o países de origen, géneros y calificación en IMBD.
+                      - Todos los datos del objeto son obligatorios.
+                      - Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 7 restantes números.
+                      - Valida que el título no rebase los 100 caracteres.
+                      - Valida que el director no rebase los 50 caracteres.
+                      - Valida que el año de estreno sea un número entero de 4 dígitos.
+                      - Valida que el país o paises sea introducidos en forma de arreglo.
+                      - Valida que los géneros sean introducidos en forma de arreglo.
+                      - Valida que los géneros introducidos esten dentro de los géneros aceptados*.
+                      - Crea un método estático que devuelva los géneros aceptados*.
+                      - Valida que la calificación sea un número entre 0 y 10 pudiendo ser decimal de una posición.
+                      - Crea un método que devuelva toda la ficha técnica de la película.
+                      - Apartir de un arreglo con la información de 3 películas genera 3 instancias de la clase de forma automatizada e imprime la ficha técnica de cada película.
+                    * Géneros Aceptados: Action, Adult, Adventure, Animation, Biography, Comedy, Crime, Documentary ,Drama, Family, Fantasy, Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport, Talk-Show, Thriller, War, Western.
+                    */
+
+      class Pelicula {
+        constructor({ id, title, director, year, country, genre, rating }) {
+          this.id = id;
+          this.title = title;
+          this.director = director;
+          this.year = year;
+          this.country = country;
+          this.genre = genre;
+          this.rating = rating;
+          this.validarIMDBId(id);
+          this.validarTitle(title);
+          this.validarDirector(director);
+          this.validarYear(year);
+          this.validarPais(country);
+          this.validarGeneros(genre);
+          this.validarCalificacion(rating);
+        }
+
+        //lista de géneros como estático con el método get
+        static get listaGeneros() {
+          return [
+            "Action",
+            "Adult",
+            "Adventure",
+            "Animation",
+            "Biography",
+            "Comedy",
+            "Crime",
+            "Documentary",
+            "Drama",
+            "Family",
+            "Fantasy",
+            "Film Noir",
+            "Game-Show",
+            "History",
+            "Horror",
+            "Musical",
+            "Music",
+            "Mystery",
+            "News",
+            "Reality-TV",
+            "Romance",
+            "Sci-Fi",
+            "Short",
+            "Sport",
+            "Talk-Show",
+            "Thriller",
+            "War",
+            "Western",
+          ];
+        }
+        // lista de géneros aceptados
+        static generosAceptados() {
+          return console.info(
+            `Los géneros aceptados son: ${Pelicula.listaGeneros.join(", ")}.`
+          );
+        }
+
+        // valida que la cadena sea válida
+        validarCadena(propiedad, valor) {
+          if (!valor)
+            return console.warn(`${propiedad} "${valor}" está vacío.`);
+          if (typeof valor !== "string")
+            return console.warn(`${propiedad} "${valor}" no es una cadena.`);
+
+          return true;
+        }
+
+        // valida la longitud de la cadena (para director y título)
+        validarLongitudCadena(propiedad, valor, longitud) {
+          if (valor.length > longitud)
+            return console.error(
+              `${propiedad} "${valor}" excede los ${longitud} caracteres.`
+            );
+          return true;
+        }
+
+        // valida que el valor ingresado sea un número
+        validarNumero(propiedad, valor) {
+          if (!valor)
+            return console.warn(`${propiedad} "${valor}" está vacío.`);
+          if (typeof valor !== "number")
+            return console.warn(`${propiedad} "${valor}" no es un número.`);
+          return true;
+        }
+
+        // valida que lo ingresado sea un arreglo de textos
+        validarArreglo(propiedad, valor) {
+          if (!valor)
+            return console.warn(`${propiedad} "${valor}" está vacío.`);
+          if (!(valor instanceof Array))
+            return console.error(`${propiedad} "${valor}" no es un arreglo.`);
+          if (valor.length === 0)
+            return console.error(`${propiedad} "${valor}" no tiene datos.`);
+
+          for (let c of valor) {
+            if (typeof c !== "string")
+              return console.error(`${c} no es una cadena de texto.`);
+          }
+          return true;
+        }
+
+        // Valida que el id IMDB tenga 9 caracteres, los primeros 2 sean letras y los 7 restantes números.
+        validarIMDBId(id) {
+          if (this.validarCadena("IMDB Id", id))
+            if (!/^(ch|co|ev|nm|tt)\d{7}$/.test(id))
+              return console.error(`IMDB Id "${id}" no es válido.`);
+        }
+
+        // Valida que el título no rebase los 100 caracteres.
+        validarTitle(title) {
+          if (this.validarCadena("Título", title))
+            this.validarLongitudCadena("Título", title, 100);
+        }
+
+        //Valida que el director no rebase los 50 caracteres.
+        validarDirector(director) {
+          if (this.validarCadena("Director", director))
+            this.validarLongitudCadena("Director", director, 50);
+        }
+
+        // Valida que el año de estreno sea un número entero de 4 dígitos.
+        validarYear(year) {
+          if (this.validarNumero("Año", year))
+            if (!/^\d{4}$/.test(year))
+              return console.error(`Año "${year}" no es válido.`);
+        }
+
+        // Valida que el país o paises sea introducidos en forma de arreglo.
+        validarPais(country) {
+          this.validarArreglo("Pais", country);
+        }
+
+        // Valida que los géneros sean introducidos en forma de arreglo.
+        validarGeneros(genre) {
+          if (this.validarArreglo("Género", genre)) {
+            for (const g of genre) {
+              // si alguno de los géneros no está en la lista permitida
+              if (!Pelicula.listaGeneros.includes(g)) {
+                // nos lo dice
+                console.warn(`Géneros no aceptados: "${genre.join(", ")}"`);
+                // muestra los géneros aceptados
+                Pelicula.generosAceptados();
+              }
+            }
+          }
+        }
+
+        // Valida la calificación según las reglas dadas.
+        validarCalificacion(rating) {
+          if (this.validarNumero("Calificación", rating))
+            return rating < 0 || rating > 10
+              ? console.error(`La calificación debe estar entre 0 y 10.`)
+              : (this.rating = rating.toFixed(1));
+        }
+
+        // Ficha técnica con toda la información de la película
+        fichaTecnica() {
+          console.info(
+            `          Id: ${this.id}\n      Título: ${
+              this.title
+            }\n    Director: ${this.director}\n         Año: ${
+              this.year
+            }\n        País: ${this.country.join(
+              " - "
+            )}\n      Género: ${this.genre.join(", ")}\nCalificación: ${
+              this.rating
+            }\n`
+          );
+        }
+      }
+      // Esto lo usé para hacer diversas validaciones
+
+      /*  const peli = new Pelicula({
+              id: "tt1234567",
+              title: "Rambo III",
+              director: "Arnold Swasesneger",
+              year: 2022,
+              country: ["Francia", "Colombia"],
+              genre: ["Action", "Crime"],
+              rating: 5.195,
+            });
+            peli.fichaTecnica(); */
+
+      const misPeliculas = [
+        {
+          id: "tt0074084",
+          title: "Novecento",
+          director: "Bernardo Bertolucci",
+          year: 1976,
+          country: ["Italy", "France", "West Germany"],
+          genre: ["Drama", "History"],
+          rating: 7.7,
+        },
+        {
+          id: "tt0120737",
+          title: "The Lord of the Rings: The Fellowship of the Ring",
+          director: "Peter Jackson",
+          year: 2001,
+          country: ["New Zealand", "United States"],
+          genre: ["Action", "Adventure", "Drama"],
+          rating: 8.8,
+        },
+        {
+          id: "tt1305806",
+          title: "El secreto de sus ojos",
+          director: "Juan José Campanella",
+          year: 2009,
+          country: ["Argentina", "Spain"],
+          genre: ["Drama", "Mystery", "Romance"],
+          rating: 8.2,
+        },
+      ];
+
+      // Crea las fichas técnicas de cada película en el arreglo misPeliculas
+      misPeliculas.forEach((el) => new Pelicula(el).fichaTecnica());
+    </script>
+  </body>
+</html>
